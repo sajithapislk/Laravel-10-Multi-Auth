@@ -26,7 +26,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('login',[UserController::class,'login']);
         Route::post('check',[UserController::class,'check']);
     });
-    
+
     Route::middleware(['auth:web','prevent-back-history'])->group(function () {
         Route::get('home', function () {
             return "home";
@@ -43,7 +43,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('login',[AdminController::class,'login']);
         Route::post('check',[AdminController::class,'check']);
     });
-    
+
     Route::middleware(['auth:admin','prevent-back-history'])->group(function () {
         Route::get('home', function () {
             return "home";
