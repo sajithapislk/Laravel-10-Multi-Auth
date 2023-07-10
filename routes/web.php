@@ -35,19 +35,19 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('logout',[UserController::class,'logout']);
 });
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::middleware(['guest:admin','prevent-back-history'])->group(function () {
-        Route::get('create',[AdminController::class,'create']);
-        Route::post('store',[AdminController::class,'store']);
+// Route::prefix('admin')->name('admin.')->group(function () {
+    // Route::middleware(['guest:admin','prevent-back-history'])->group(function () {
+    //     Route::get('create',[AdminController::class,'create']);
+    //     Route::post('store',[AdminController::class,'store']);
 
-        Route::get('login',[AdminController::class,'login']);
-        Route::post('check',[AdminController::class,'check']);
-    });
+    //     Route::get('login',[AdminController::class,'login']);
+    //     Route::post('check',[AdminController::class,'check']);
+    // });
 
-    Route::middleware(['auth:admin','prevent-back-history'])->group(function () {
-        Route::get('home', function () {
-            return "home";
-        });
-        Route::get('logout',[AdminController::class,'logout']);
-    });
-});
+    // Route::middleware(['auth:admin','prevent-back-history'])->group(function () {
+    //     Route::get('home', function () {
+    //         return "home";
+    //     });
+    //     Route::get('logout',[AdminController::class,'logout']);
+    // });
+// });
