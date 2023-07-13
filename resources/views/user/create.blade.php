@@ -18,6 +18,9 @@
         <label for="password">password</label>
         <input type="text" id="password" name="password">
         <br>
+        <label for="country">country</label>
+        <input type="text" id="country" name="country">
+        <br>
         <input type="submit" value="Submit">
     </form>
 </body>

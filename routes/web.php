@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CapitalController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\Web\AdminController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('user',[UserController::class,'index']);
+Route::get('capital',[CapitalController::class,'store']);
+Route::get('country',[CountryController::class,'store']);
+
 Route::prefix('user')->name('user.')->group(function () {
     Route::middleware(['guest:web','prevent-back-history'])->group(function () {
         Route::get('create',[UserController::class,'create']);

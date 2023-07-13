@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'c_id'
     ];
 
     /**
@@ -41,4 +42,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function country()
+    {
+        return $this->hasOne(Country::class,'id','c_id');
+    }
 }

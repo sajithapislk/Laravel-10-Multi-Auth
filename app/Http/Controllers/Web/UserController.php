@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return User::with('country.capital')->get();
     }
 
     /**
@@ -34,6 +34,7 @@ class UserController extends Controller
         return User::create([
             'name'=>$request->name,
             'email'=>$request->email,
+            'c_id'=>$request->country,
             'password'=>Hash::make($request->password)
         ]);
     }
@@ -75,11 +76,6 @@ class UserController extends Controller
     }
     public function check(Request $request)
     {
-        $request->validate([
-            'email' => 'required|exists:users',
-            'password' => 'required',
-        ]);
-
         $userRequest = $request->only(['email','password']);
 
         if(Auth::guard('web')->attempt($userRequest)){
